@@ -10,10 +10,10 @@ public class MovementSettings : ScriptableObject
     [SerializeField] private float _minX;
     [SerializeField] private float _maxX;
     [SerializeField] private float _horizontalSpeed;
-    [SerializeField] private float _verticalSpeed;
+    [SerializeField] private float _forwardSpeed;
 
     public float MinX => _minX;
     public float MaxX => _maxX;
     public float HorizontalSpeed => _horizontalSpeed;
-    public float VerticalSpeed => _verticalSpeed;
+    public float ForwardSpeed => _forwardSpeed;
 }

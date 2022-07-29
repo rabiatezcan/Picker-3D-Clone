@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172e83e139e12bf429fca203458e9bc3, type: 3}
-  m_Name: MovementSettings
+  m_Script: {fileID: 11500000, guid: ada92f768ab1f324ca9c1f62a447eec9, type: 3}
+  m_Name: CameraSettings
   m_EditorClassIdentifier: 
-  _minX: -1.9
-  _maxX: 1.9
-  _horizontalSpeed: 8
-  _forwardSpeed: 7
+  _xAxisOffset: 0
+  _yAxisOffset: 5.77
+  _zAxisOffset: -8.69

@@ -13,6 +13,7 @@ public class PickerController : Controller
     public override void Initialize(GameManager gameManager)
     {
         _inputController = new InputController();
+        _picker.Initialize();
         _isMovable = false;
     }
     public override void StartGame()

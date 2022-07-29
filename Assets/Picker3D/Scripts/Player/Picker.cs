@@ -6,12 +6,20 @@ public class Picker : MonoBehaviour
 {
     [SerializeField] private MovementSettings _movementSettings;
 
+    private Transform _transform;
+
+    public void Initialize()
+    {
+        _transform = transform;
+    }
+
     public void Movement(Vector2 inputPos)
     {
-        Vector3 currentPos = transform.position;
-        currentPos += inputPos.x * Time.deltaTime * _movementSettings.HorizontalSpeed * Vector3.right;
+        Vector3 currentPos = _transform.position;
+        currentPos += new Vector3(inputPos.x * _movementSettings.HorizontalSpeed, 0f, _movementSettings.ForwardSpeed) * Time.deltaTime;
         currentPos.x = Mathf.Clamp(currentPos.x, _movementSettings.MinX, _movementSettings.MaxX);
 
-        transform.position = Vector3.Lerp(transform.position,currentPos, Time.deltaTime * _movementSettings.HorizontalSpeed);
+        _transform.position = Vector3.Lerp(_transform.position, currentPos, Time.deltaTime * _movementSettings.HorizontalSpeed);
     }
+
 }
