@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CameraSettings
   m_EditorClassIdentifier: 
   _xAxisOffset: 0
-  _yAxisOffset: 5.77
-  _zAxisOffset: -8.69
+  _yAxisOffset: 6.55
+  _zAxisOffset: -8.15

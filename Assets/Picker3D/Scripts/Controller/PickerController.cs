@@ -47,7 +47,7 @@ public class PickerController : Controller
 
         }
     }
-    void Update()
+    void FixedUpdate()
     {
         UpdateMovement();
     }
