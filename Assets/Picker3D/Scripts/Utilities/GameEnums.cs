@@ -11,6 +11,15 @@ public class GameEnums
         Game,
         End
     }
+
+    public enum CheckPointStates
+    {
+        Idle,
+        Counting,
+        PlatformRaise,
+        Barrier,
+
+    }
     public enum ObjectType
     {
 

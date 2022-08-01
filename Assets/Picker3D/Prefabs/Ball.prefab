@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7423322224176509722}
   m_Layer: 9
   m_Name: BallBody
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 1687396273914095822}
   m_Layer: 9
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,7 +127,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 1
-  m_Constraints: 4
+  m_Constraints: 0
   m_CollisionDetection: 2
 --- !u!114 &1687396273914095822
 MonoBehaviour:
@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46c1817215bbe6d49a8c161fe9a28819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _physicListener: {fileID: 0}
+  _rigidbody: {fileID: 4240784463492733266}
 --- !u!1 &7423322225652473214
 GameObject:
   m_ObjectHideFlags: 0
@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 7423322225652473212}
   m_Layer: 9
   m_Name: BallPhysic
-  m_TagString: Untagged
+  m_TagString: Ball
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
