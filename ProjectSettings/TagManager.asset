@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - Picker
+  - WingTrigger
   layers:
   - Default
   - TransparentFX

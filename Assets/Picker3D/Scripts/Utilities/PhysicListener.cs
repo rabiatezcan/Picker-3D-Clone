@@ -15,7 +15,7 @@ public class PhysicListener : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(CompareTagName) || CompareTagName == "")
+        if (other.tag == CompareTagName || CompareTagName == "")
         {
             contactCollider = other;
             TriggerEnterCallback.Invoke();
@@ -23,7 +23,7 @@ public class PhysicListener : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag(CompareTagName) || CompareTagName == "")
+        if (other.tag == CompareTagName || CompareTagName == "")
         {
             contactCollider = other;
             TriggerExitCallback.Invoke();

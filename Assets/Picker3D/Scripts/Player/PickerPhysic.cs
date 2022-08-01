@@ -5,7 +5,8 @@ using UnityEngine;
 public class PickerPhysic : MonoBehaviour
 {
     [SerializeField] private PhysicListener _physicListener;
-    
+    [SerializeField] private WingHandler _wingHandler;
+
     private List<Ball> _balls;
 
     public List<Ball> Balls => _balls;
@@ -34,7 +35,16 @@ public class PickerPhysic : MonoBehaviour
         {
             AddBall(other.GetComponentInParent<Ball>());
         }
-    } 
+        if (other.CompareTag("WingTrigger"))
+        {
+            var wingTrigger = other.GetComponentInParent<WingTrigger>();
+
+            if (wingTrigger != null)
+                wingTrigger.TriggerBehaviour();
+
+            _wingHandler.ShowSequence();
+        }
+    }
 
     public void TriggerExitBehaviour()
     {
