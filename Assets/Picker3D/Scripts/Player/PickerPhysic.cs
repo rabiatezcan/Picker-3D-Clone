@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PickerPhysic : MonoBehaviour
 {
+    public Action OnLevelFinish;
+    public Action OnRampEnd;
     [SerializeField] private PhysicListener _physicListener;
     [SerializeField] private WingHandler _wingHandler;
 
@@ -43,6 +46,15 @@ public class PickerPhysic : MonoBehaviour
                 wingTrigger.TriggerBehaviour();
 
             _wingHandler.ShowSequence();
+        }
+        if (other.CompareTag("LevelFinish"))
+        {
+            OnLevelFinish?.Invoke();
+        }
+
+        if (other.CompareTag("RampEnd"))
+        {
+            OnRampEnd?.Invoke();
         }
     }
 

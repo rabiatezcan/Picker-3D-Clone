@@ -15,4 +15,4 @@ MonoBehaviour:
   _minX: -1.8
   _maxX: 1.8
   _horizontalSpeed: 4
-  _forwardSpeed: 25
+  _forwardSpeed: 50

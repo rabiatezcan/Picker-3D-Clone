@@ -1,9 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
+    public Action OnMouseButtonDown;
+
     private Vector2 _previousPos;
     private Vector2 _mousePos;
     private Vector2 _currentPos;
@@ -29,13 +32,15 @@ public class InputController : MonoBehaviour
             _mousePos = Input.mousePosition;
             _currentPos = _mousePos;
             _previousPos = _mousePos;
+
+            OnMouseButtonDown?.Invoke();
         }
 
         if (Input.GetMouseButton(0))
         {
             _currentPos = Input.mousePosition;
             _deltaPos = (_currentPos - _previousPos) * _sensitivity;
-
+            
             _previousPos = _currentPos;
         }
 

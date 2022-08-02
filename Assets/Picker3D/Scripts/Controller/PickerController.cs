@@ -19,7 +19,9 @@ public class PickerController : Controller
     public override void StartGame()
     {
         _isMovable = true;
+        _inputController.OnMouseButtonDown += _picker.ListenTapInput;
     }  
+
     public override void Reload()
     {
     }
@@ -27,12 +29,15 @@ public class PickerController : Controller
     {
         _isMovable = false;
         _inputController.RemoveInputs();
+        _inputController.OnMouseButtonDown -= _picker.ListenTapInput;
+
     }
 
     public override void GameSuccess()
     {
         _isMovable = false;
         _inputController.RemoveInputs();
+        _inputController.OnMouseButtonDown -= _picker.ListenTapInput;
     }
     #endregion
 
@@ -44,7 +49,6 @@ public class PickerController : Controller
             _inputController.Update();
 
             _picker.Movement(_inputController.DeltaPos);
-
         }
     }
     void FixedUpdate()

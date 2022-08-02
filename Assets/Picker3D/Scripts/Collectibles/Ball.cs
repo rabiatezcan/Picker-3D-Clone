@@ -13,7 +13,7 @@ public class Ball : PoolObject
 
     public void ContactDismiss()
     {
-        StartCoroutine(DismissDelay(.2f));
+        StartCoroutine(DismissDelay(.5f));
     }
     public IEnumerator DismissDelay(float durationInSeconds)
     {
