@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WinScreen : Panel
 {
+    [SerializeField] private Text _scoreTxt; 
     public override void Hide()
     {
         gameObject.SetActive(false);
@@ -14,4 +16,8 @@ public class WinScreen : Panel
         gameObject.SetActive(true);
     }
 
+    private void SetText()
+    {
+        //_scoreTxt.text = "Score : " + ScoreSystem.GetCurrentScore();
+    }
 }
