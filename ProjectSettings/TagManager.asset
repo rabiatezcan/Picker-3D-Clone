@@ -10,6 +10,9 @@ TagManager:
   - LevelFinish
   - RampEnd
   - ScoreArea
+  - CheckPoint
+  - LevelEnd
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -24,7 +27,7 @@ TagManager:
   - Platform
   - PickerBoundary
   - CheckPoint
-  - 
+  - LevelEditor
   - 
   - 
   - 

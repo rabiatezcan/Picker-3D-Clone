@@ -9,12 +9,19 @@ public class BallCountCheckArea : MonoBehaviour
     [SerializeField] private PhysicListener _physicListener;
     private int _pickerBallCount;
     private int _ballCount;
-    private int _targetCount = 5;
+    private int _targetCount;
 
+    public int TargetCount 
+    { 
+        get => _targetCount; 
+        set { 
+            _targetCount = value; 
+        } 
+    }
 
     public int PickerBallCount
     {
-        get => PickerBallCount; 
+        get => PickerBallCount;
         set
         {
             _pickerBallCount = value;

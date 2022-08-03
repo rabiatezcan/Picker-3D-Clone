@@ -39,6 +39,7 @@ public class Picker : MonoBehaviour
 
     public void Stop()
     {
+        _pickerPhysic.WingsDismiss();
         _rigidbody.velocity = Vector3.zero;
         _isStopped = true;
         _pickerPhysic.Balls.ForEach(ball => ball.Move());

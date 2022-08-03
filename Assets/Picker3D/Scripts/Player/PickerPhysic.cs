@@ -18,19 +18,11 @@ public class PickerPhysic : MonoBehaviour
     {
         _balls = new List<Ball>();
     }
-
-    private void AddBall(Ball ball)
+    public void WingsDismiss()
     {
-        if(ball != null)
-            _balls.Add(ball);
+        _wingHandler.Hide();
     }
-
-    private void RemoveBall(Ball ball)
-    {
-        if (ball != null)
-            _balls.Remove(ball);
-    }
-
+    
     public void TriggerEnterBehaviour()
     {
         var other = _physicListener.ContactCollider;
@@ -67,5 +59,17 @@ public class PickerPhysic : MonoBehaviour
         }
 
     }
-  
+    private void AddBall(Ball ball)
+    {
+        if (ball != null)
+            _balls.Add(ball);
+    }
+
+    private void RemoveBall(Ball ball)
+    {
+        if (ball != null)
+            _balls.Remove(ball);
+    }
+
+
 }

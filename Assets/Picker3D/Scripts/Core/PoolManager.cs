@@ -6,8 +6,6 @@ public class PoolManager : MonoBehaviour
 {
     [SerializeField] List<Pool> _pools;
 
-    public static object Pools { get;  set; }
-
     public void Initialize()
     {
         _pools.ForEach(pool => pool.Initialize());

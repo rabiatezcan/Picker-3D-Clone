@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class LevelController : Controller
 {
-    [SerializeField] private LevelSerialization _levels;
-    private Level _currentLevel;
+    private Level _currentLevel = new Level();
 
     #region States
     public override void Initialize(GameManager gameManager)
     {
+        _currentLevel.Initialize();
         LoadLevel();
     }
     public override void StartGame()
@@ -31,16 +31,7 @@ public class LevelController : Controller
 
     private void LoadLevel()
     {
-        int currentLevelCount = PlayerHelper.Instance.Player.Level - 1;
-
-        if (currentLevelCount >= _levels.Count)
-        {
-            currentLevelCount = Random.Range(0, _levels.Count);
-        }
-
-        _currentLevel = Instantiate(_levels[currentLevelCount]);
         _currentLevel.Build();
-
     }
 
     private void UnloadLevel()

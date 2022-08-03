@@ -1720,8 +1720,8 @@ GameObject:
   - component: {fileID: 2634791150742929879}
   - component: {fileID: 2180583780533480501}
   m_Layer: 10
-  m_Name: EndPlatform
-  m_TagString: Untagged
+  m_Name: LevelEnd
+  m_TagString: LevelEnd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1788,7 +1788,7 @@ GameObject:
   - component: {fileID: 2634791151113607834}
   m_Layer: 10
   m_Name: EndCheckerBoard
-  m_TagString: Untagged
+  m_TagString: LevelEnd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1867,7 +1867,7 @@ GameObject:
   - component: {fileID: 2634791151298426254}
   m_Layer: 10
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: LevelEnd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1913,7 +1913,7 @@ GameObject:
   - component: {fileID: 2634791151756712319}
   m_Layer: 10
   m_Name: StartCheckerBoard
-  m_TagString: Untagged
+  m_TagString: LevelEnd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4844,7 +4844,7 @@ GameObject:
   - component: {fileID: 7968945984359457379}
   m_Layer: 10
   m_Name: Ramp
-  m_TagString: Untagged
+  m_TagString: LevelEnd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5798,7 +5798,7 @@ GameObject:
   - component: {fileID: 6917684930942846425}
   m_Layer: 10
   m_Name: ScoreArea
-  m_TagString: Untagged
+  m_TagString: LevelEnd
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

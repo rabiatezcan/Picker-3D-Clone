@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class GameEnums
 { 
+    public enum LevelObjects
+    {
+        Platform, 
+        CheckPoint,
+        Ball, 
+        WingTrigger, 
+        LevelEnd
+    }
     public enum GameState
     {
         Loading, 

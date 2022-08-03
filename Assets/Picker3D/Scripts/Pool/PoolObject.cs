@@ -6,18 +6,23 @@ public class PoolObject : MonoBehaviour
 {
     private bool _isTaken;
     public bool IsTaken => _isTaken;
+    public virtual void Initialize()
+    {
 
-
+    }
     public virtual void SetActive()
     {
         _isTaken = true;
         gameObject.SetActive(true);
     }
 
-    public virtual void SetActiveWithPosition(Vector3 position)
+    public virtual void SetPosition(Vector3 position)
     {
         transform.position = position;
-        SetActive();
+    }      
+    public virtual void SetRotation(Quaternion rotation)
+    {
+        transform.rotation = rotation; 
     }   
     public virtual void Dismiss()
     {

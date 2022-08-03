@@ -11,17 +11,26 @@ public class GameManager : MonoBehaviour
     [Header("Controllers")]
     [SerializeField] private List<Controller> _controllers;
 
-    private GameEnums.GameState _currentState;
-    public GameEnums.GameState CurrentState
+    private static GameManager _gameManager; 
+    public static GameManager Instance
     {
-        get => _currentState;
-        set
+        get
         {
-            _currentState = value;
+            if(_gameManager == null)
+            {
+                
+            }
+
+            return _gameManager;
         }
     }
 
     #region Init
+
+    private void Awake()
+    {
+        _gameManager = this;
+    }
     private void Start()
     {
         Initialize();
@@ -34,7 +43,6 @@ public class GameManager : MonoBehaviour
         _dataManager.Initialize();
         _poolManager.Initialize();
         _controllers.ForEach(controller => controller.Initialize(this));
-
     }
 
     public void StartGame()

@@ -22,7 +22,7 @@ public class WingHandler : MonoBehaviour
         gameObject.SetActive(true); 
     }
 
-    private void Hide()
+    public void Hide()
     {
         gameObject.SetActive(false);
     }

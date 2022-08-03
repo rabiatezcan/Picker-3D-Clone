@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class CheckPoint : MonoBehaviour
+public class CheckPoint : PoolObject
 {
     [SerializeField] private PhysicListener _physicListener;
     [SerializeField] private BallCountCheckArea _checkArea;
@@ -11,13 +11,21 @@ public class CheckPoint : MonoBehaviour
     private GameEnums.CheckPointStates _currentState;
     private Picker _picker;
 
-    public void Initialize()
+    public int TargetBallValue 
     {
+        get => _checkArea.TargetCount;
+        set
+        {
+            _checkArea.TargetCount = value;
+        } 
+    }
+    public override void Initialize()
+    {
+        base.Initialize();
         _currentState = GameEnums.CheckPointStates.Idle;
         _checkArea.Initialize();
         _ground.Initialize();
         _barrier.Initialize();
-
     }
 
     public void StopPicker()
