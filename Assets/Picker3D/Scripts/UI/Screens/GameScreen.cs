@@ -30,11 +30,10 @@ public class GameScreen : Screen
     private void IncreaseCurrentIndex()
     {
         SetIndicatorColor();
-        _currentIndex++;
     }
     private void SetIndicatorColor()
     {
-        _checkPointIndicators[_currentIndex].color = _fillColor;
+        _checkPointIndicators[_currentIndex++].color = _fillColor;
     }
     private void SetTextsOnStartGame()
     {

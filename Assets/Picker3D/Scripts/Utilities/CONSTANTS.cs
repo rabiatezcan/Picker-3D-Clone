@@ -8,7 +8,7 @@ public class CONSTANTS
     public const float BALL_FORCE_MULTIPLIER = 8;
     public const float ROTATEOBJECT_MULTIPLIER = 100;
     public const float LEVEL_FINISH_FORCE_VALUE_PER_TAP= .2f;
-    public const float OBJECT_OFFSET_VALUE_PER_LEVEL = 249.8f;
+    public const float OBJECT_OFFSET_VALUE_PER_LEVEL = 186.7f;
     public const int LEVEL_END_SCORE_MULTIPLIER = 100;
     public const int POOL_INCREMENT_AMOUNT = 3;
     public const int MAX_LEVEL_COUNT = 4;

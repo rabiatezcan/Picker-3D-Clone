@@ -152,7 +152,7 @@ public class LevelGenerator : MonoBehaviour
     #region Save/Load
     public void SaveLevel()
     {
-        string folder = Application.persistentDataPath + "/LevelData/";
+        string folder = "Assets/Picker3D/LevelData/";
         string levelFile = "";
 
         if (_levelName == "")
@@ -188,7 +188,7 @@ public class LevelGenerator : MonoBehaviour
     {
         _levelObjects.Clear();
 
-        string folder = Application.persistentDataPath + "/LevelData/";
+        string folder = "Assets/Picker3D/LevelData/";
         string levelFile = "";
 
         if (_levelName == "")
@@ -197,6 +197,8 @@ public class LevelGenerator : MonoBehaviour
             levelFile = _levelName + ".json";
 
         string path = Path.Combine(folder, levelFile);
+        if (!Directory.Exists(folder))
+            Directory.CreateDirectory(folder);
 
         if (File.Exists(path))
         {

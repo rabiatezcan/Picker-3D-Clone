@@ -5,10 +5,9 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    [SerializeField] private List<PoolObject> _previousLevelObj;
-    [SerializeField] private List<PoolObject> _levelObjects;
+    [SerializeField] private List<PoolObject> _levelObjects = new List<PoolObject>();
 
-    private LevelEditor _levelEditor;
+    private LevelEditor _levelEditor = new LevelEditor();
 
     private float _finishZAxisValue;
     private float _startZAxisValue;
@@ -17,19 +16,16 @@ public class Level : MonoBehaviour
     public float StartZAxisValue => _startZAxisValue;
     public void Initialize()
     {
-        _levelEditor = new LevelEditor();
-        _levelObjects = new List<PoolObject>();
-        _previousLevelObj = new List<PoolObject>();
         _currentOffset = 0;
         _finishZAxisValue = 0f;
         _startZAxisValue = 0f;
     }
     public void Build(int currentLevelIndexOffset)
     {
-        string folder = Application.persistentDataPath + "/LevelData/";
-         
-        if(currentLevelIndexOffset == 1)
-            _currentOffset += CONSTANTS.OBJECT_OFFSET_VALUE_PER_LEVEL;
+        string folder = "Assets/Picker3D/LevelData/";
+
+        if (currentLevelIndexOffset == 1)
+            _currentOffset = 1; 
 
         if (PlayerHelper.Instance.Player.Level >= CONSTANTS.MAX_LEVEL_COUNT)
         {
@@ -58,18 +54,24 @@ public class Level : MonoBehaviour
         {
             Debug.LogWarning("There is no file");
         }
-        _finishZAxisValue = _levelObjects[_levelObjects.Count - 1].transform.position.z;
-        _startZAxisValue = _levelObjects[0].transform.position.z;
+        
     }
 
     private void CreateFromFile()
     {
+        SetValues();
         for (int i = 0; i < _levelEditor.editorObjects.Count; i++)
         {
             CreateLevelObject(_levelEditor.editorObjects[i]);
         }
 
-        
+    }
+
+    private void SetValues()
+    {
+        _finishZAxisValue = _levelEditor.editorObjects[_levelEditor.editorObjects.Count - 1].position.z;
+        _currentOffset *= (_finishZAxisValue + CONSTANTS.OBJECT_OFFSET_VALUE_PER_LEVEL);
+        _startZAxisValue = _levelEditor.editorObjects[0].position.z + _currentOffset;
     }
 
     private void CreateLevelObject(EditorObject.Data editorObject)
@@ -86,6 +88,7 @@ public class Level : MonoBehaviour
         newObj.SetActive();
         _levelObjects.Add(newObj);
 
+       
     }
 
     public void Remove()
