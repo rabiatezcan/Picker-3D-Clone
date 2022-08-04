@@ -5,15 +5,17 @@ using UnityEngine;
 public class LevelController : Controller
 {
     private Level _currentLevel = new Level();
+    [SerializeField] private Picker _picker;
 
     #region States
-    public override void Initialize(GameManager gameManager)
+    public override void Initialize()
     {
-        _currentLevel.Initialize();
         LoadLevel();
     }
     public override void StartGame()
     {
+        _picker.PickerPhysic.OnRampStart += LoadLevelOnGameplay;
+
     }
     public override void Reload()
     {
@@ -22,22 +24,31 @@ public class LevelController : Controller
     }
     public override void GameFail()
     {
+       
     }
 
     public override void GameSuccess()
     {
+        UnloadLevel();
     }
     #endregion
 
+    private void LoadLevelOnGameplay()
+    {
+        _currentLevel.Initialize();
+        _currentLevel.Build(1);
+        _picker.StartPos = Vector3.forward * _currentLevel.StartZAxisValue;
+    }
     private void LoadLevel()
     {
-        _currentLevel.Build();
+        _currentLevel.Initialize();
+        _currentLevel.Build(0);
+        _picker.StartPos = Vector3.forward * _currentLevel.StartZAxisValue;
     }
+
 
     private void UnloadLevel()
     {
         _currentLevel.Remove();
-        Destroy(_currentLevel.gameObject);
-        _currentLevel = null;
     }
 }

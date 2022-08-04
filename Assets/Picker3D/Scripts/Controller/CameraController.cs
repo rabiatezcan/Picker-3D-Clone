@@ -9,13 +9,14 @@ public class CameraController : Controller
     private Transform _transform;
     private bool _canFollow; 
     #region States
-    public override void Initialize(GameManager gameManager)
+    public override void Initialize()
     {
         _transform = transform;
         _canFollow = false;
     }
     public override void Reload()
     {
+        SetPosition(_followObjTransform.position);
     }
 
     public override void StartGame()
@@ -34,13 +35,15 @@ public class CameraController : Controller
 
     #endregion
 
+    private void SetPosition(Vector3 newPos)
+    {
+        _transform.position = new Vector3(0f, newPos.y + _cameraSettings.YAxisOffset, newPos.z + _cameraSettings.ZAxisOffset);
+    }
     #region Follow
     private void Follow()
     {
-        var currentPos = _followObjTransform.position;
-
         if (_canFollow)
-          _transform.position = new Vector3(0f, currentPos.y + _cameraSettings.YAxisOffset, currentPos.z + _cameraSettings.ZAxisOffset);
+            SetPosition(_followObjTransform.position);
     }
 
     private void LateUpdate()

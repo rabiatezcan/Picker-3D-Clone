@@ -27,10 +27,17 @@ public class BallCountCheckArea : MonoBehaviour
             _pickerBallCount = value;
         }
     }
+
     public void Initialize()
     {
         _ballCount = 0;
         UpdateBallCountText();
+    }
+
+    public void SetDefault()
+    {
+        _ballCountText.text = "0";
+        _ballCount = 0;
     }
 
     public void BallContact()
@@ -51,7 +58,8 @@ public class BallCountCheckArea : MonoBehaviour
 
     public bool IsCountingStateFinish()
     {
-        if (_pickerBallCount == _ballCount)
+
+        if (_ballCount >= _pickerBallCount)
         {
             return true;
         }

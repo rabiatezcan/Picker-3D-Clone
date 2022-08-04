@@ -6,10 +6,6 @@ public class PoolObject : MonoBehaviour
 {
     private bool _isTaken;
     public bool IsTaken => _isTaken;
-    public virtual void Initialize()
-    {
-
-    }
     public virtual void SetActive()
     {
         _isTaken = true;

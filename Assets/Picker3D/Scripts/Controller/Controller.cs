@@ -6,7 +6,7 @@ public abstract class Controller : MonoBehaviour
 {
     protected GameManager _gameManager;
 
-    public abstract void Initialize(GameManager gameManager);
+    public abstract void Initialize();
     public abstract void StartGame();
     
     public abstract void Reload();

@@ -5,29 +5,48 @@ public class CheckPoint : PoolObject
 {
     [SerializeField] private PhysicListener _physicListener;
     [SerializeField] private BallCountCheckArea _checkArea;
-    [SerializeField] private CheckPointGround _ground;
+    [SerializeField] private PlatformGround _ground;
     [SerializeField] private Barrier _barrier;
 
     private GameEnums.CheckPointStates _currentState;
     private Picker _picker;
 
-    public int TargetBallValue 
+    public int TargetBallValue
     {
         get => _checkArea.TargetCount;
         set
         {
             _checkArea.TargetCount = value;
-        } 
+        }
     }
-    public override void Initialize()
+    public override void SetActive()
     {
-        base.Initialize();
+        base.SetActive();
+        Initialize();
+
+    }
+
+    public override void Dismiss()
+    {
+        SetDefault();
+        base.Dismiss();
+    }
+
+    private void Initialize()
+    {
         _currentState = GameEnums.CheckPointStates.Idle;
         _checkArea.Initialize();
         _ground.Initialize();
         _barrier.Initialize();
     }
 
+    private void SetDefault()
+    {
+        _currentState = GameEnums.CheckPointStates.Idle;
+        _ground.SetDefault();
+        _checkArea.SetDefault();
+        _barrier.SetDefault();
+    }
     public void StopPicker()
     {
         _picker = _physicListener.ContactCollider.GetComponentInParent<Picker>();
@@ -47,7 +66,9 @@ public class CheckPoint : PoolObject
         if (_checkArea.IsCountingStateFinish())
         {
             if (_checkArea.IsSuccess())
+            {
                 _currentState = GameEnums.CheckPointStates.PlatformRaise;
+            }
             else
             {
                 _currentState = GameEnums.CheckPointStates.Idle;

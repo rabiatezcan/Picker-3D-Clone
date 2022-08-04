@@ -7,7 +7,7 @@ public class UIController : Controller
     [SerializeField] List<Screen> _screens;
 
     #region States
-    public override void Initialize(GameManager gameManager)
+    public override void Initialize()
     {
         ShowMainScreen();
        

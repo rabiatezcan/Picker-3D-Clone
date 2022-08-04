@@ -10,7 +10,7 @@ public class PickerController : Controller
     private bool _isMovable;
 
     #region States
-    public override void Initialize(GameManager gameManager)
+    public override void Initialize()
     {
         _inputController = new InputController();
         _picker.Initialize();
@@ -24,6 +24,7 @@ public class PickerController : Controller
 
     public override void Reload()
     {
+        _picker.Reload();
     }
     public override void GameFail()
     {

@@ -6,6 +6,12 @@ using UnityEngine;
 public class Ball : PoolObject
 {
     [SerializeField] private Rigidbody _rigidbody;
+  
+    public override void Dismiss()
+    {
+        SetDefault();
+        base.Dismiss();
+    }
     public void Move()
     {
         _rigidbody.AddForce(Vector3.forward * CONSTANTS.BALL_FORCE_MULTIPLIER, ForceMode.VelocityChange);
@@ -19,5 +25,12 @@ public class Ball : PoolObject
     {
         yield return new WaitForSeconds(durationInSeconds);
         Dismiss();
+    }
+
+    private void SetDefault()
+    {
+        _rigidbody.velocity = Vector3.zero;
+        _rigidbody.angularVelocity = Vector3.zero;
+        _rigidbody.inertiaTensor = Vector3.one;
     }
 }

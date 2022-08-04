@@ -9,6 +9,8 @@ public class LevelEndScoreText : MonoBehaviour
 
     private int _scoreAmount;
 
+    public int ScoreAmount => _scoreAmount;
+
     public void InitializeScoreTxtAmount(int amount)
     {
         _scoreAmount = amount * CONSTANTS.LEVEL_END_SCORE_MULTIPLIER;

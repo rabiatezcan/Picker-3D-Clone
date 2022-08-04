@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
     {
         _dataManager.Initialize();
         _poolManager.Initialize();
-        _controllers.ForEach(controller => controller.Initialize(this));
+        _controllers.ForEach(controller => controller.Initialize());
     }
 
     public void StartGame()
@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
     }
     public void GameSuccess()
     {
+        PlayerHelper.Instance.UpdateLevel(1);
+        PlayerHelper.Instance.UpdateCoin(ScoreSystem.GetCurrentScore());
         _controllers.ForEach(controller => controller.GameSuccess());
 
         GameOver();

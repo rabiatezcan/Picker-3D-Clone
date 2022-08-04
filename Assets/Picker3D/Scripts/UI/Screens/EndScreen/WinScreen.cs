@@ -14,10 +14,11 @@ public class WinScreen : Panel
     public override void Show()
     {
         gameObject.SetActive(true);
+        SetText();
     }
 
     private void SetText()
     {
-        //_scoreTxt.text = "Score : " + ScoreSystem.GetCurrentScore();
+        _scoreTxt.text = "Score : " + ScoreSystem.GetCurrentScore();
     }
 }

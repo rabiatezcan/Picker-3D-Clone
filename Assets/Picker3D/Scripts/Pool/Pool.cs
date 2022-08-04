@@ -14,7 +14,6 @@ public class Pool : MonoBehaviour
     public void Initialize()
     {
         GenerateObject(_initialPoolSize);
-
     }
     public PoolObject GetItem()
     {
@@ -29,6 +28,7 @@ public class Pool : MonoBehaviour
         for (int i = 0; i < amount; i++)
         {
             PoolObject pooledObject = Instantiate(_item);
+            pooledObject.SetActive();
             pooledObject.Dismiss();
             pooledObject.transform.parent = transform;
             _itemPool.Add(pooledObject);

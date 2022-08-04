@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class PickerPhysic : MonoBehaviour
 {
-    public Action OnLevelFinish;
+    public Action OnRampStart;
     public Action OnRampEnd;
+    public Action OnLevelFinish;
     [SerializeField] private PhysicListener _physicListener;
     [SerializeField] private WingHandler _wingHandler;
 
@@ -41,12 +42,18 @@ public class PickerPhysic : MonoBehaviour
         }
         if (other.CompareTag("LevelFinish"))
         {
-            OnLevelFinish?.Invoke();
+            OnRampStart?.Invoke();
         }
 
         if (other.CompareTag("RampEnd"))
         {
             OnRampEnd?.Invoke();
+        }
+        if (other.CompareTag("ScoreArea"))
+        {
+            ScoreSystem.SetCurrentScore(other.GetComponent<LevelEndScoreText>().ScoreAmount);
+            other.GetComponentsInParent<LevelEnd>()[0].ScoreAreaTriggerBehaviour();
+            OnLevelFinish?.Invoke();
         }
     }
 

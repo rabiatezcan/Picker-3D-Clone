@@ -5,25 +5,42 @@ using UnityEngine;
 
 public class Level : MonoBehaviour
 {
-    private LevelEditor _levelEditor;
+    [SerializeField] private List<PoolObject> _previousLevelObj;
     [SerializeField] private List<PoolObject> _levelObjects;
-    [SerializeField] private Transform _startTransform;
-    [SerializeField] private Transform _finishTransform;
 
-    public Vector3 StartPosition => _startTransform.position;
-    public Vector3 FinishPosition => _finishTransform.position;
+    private LevelEditor _levelEditor;
 
+    private float _finishZAxisValue;
+    private float _startZAxisValue;
+    private float _currentOffset;
+    private int _currentLevelIndex;
+    public float StartZAxisValue => _startZAxisValue;
     public void Initialize()
     {
         _levelEditor = new LevelEditor();
         _levelObjects = new List<PoolObject>();
+        _previousLevelObj = new List<PoolObject>();
+        _currentOffset = 0;
+        _finishZAxisValue = 0f;
+        _startZAxisValue = 0f;
     }
-
-    public void Build()
+    public void Build(int currentLevelIndexOffset)
     {
         string folder = Application.persistentDataPath + "/LevelData/";
-        var levelFile = "Level" + PlayerHelper.Instance.Player.Level + ".json";
-        Debug.Log(levelFile);
+         
+        if(currentLevelIndexOffset == 1)
+            _currentOffset += CONSTANTS.OBJECT_OFFSET_VALUE_PER_LEVEL;
+
+        if (PlayerHelper.Instance.Player.Level >= CONSTANTS.MAX_LEVEL_COUNT)
+        {
+            _currentLevelIndex = Random.Range(1, CONSTANTS.MAX_LEVEL_COUNT);
+        }
+        else
+        {
+            _currentLevelIndex = PlayerHelper.Instance.Player.Level;
+        }
+
+        var levelFile = "Level" + (_currentLevelIndex + currentLevelIndexOffset) + ".json";
 
         string path = Path.Combine(folder, levelFile);
 
@@ -41,7 +58,8 @@ public class Level : MonoBehaviour
         {
             Debug.LogWarning("There is no file");
         }
-
+        _finishZAxisValue = _levelObjects[_levelObjects.Count - 1].transform.position.z;
+        _startZAxisValue = _levelObjects[0].transform.position.z;
     }
 
     private void CreateFromFile()
@@ -50,6 +68,8 @@ public class Level : MonoBehaviour
         {
             CreateLevelObject(_levelEditor.editorObjects[i]);
         }
+
+        
     }
 
     private void CreateLevelObject(EditorObject.Data editorObject)
@@ -61,10 +81,9 @@ public class Level : MonoBehaviour
             newObj.GetComponent<CheckPoint>().TargetBallValue = editorObject.checkPointTargetBallValue;
         }
 
-        newObj.SetPosition(editorObject.position);
+        newObj.SetPosition(editorObject.position + (Vector3.forward * _currentOffset));
         newObj.SetRotation(editorObject.rotation);
         newObj.SetActive();
-        newObj.Initialize();
         _levelObjects.Add(newObj);
 
     }
@@ -72,6 +91,7 @@ public class Level : MonoBehaviour
     public void Remove()
     {
         _levelObjects.ForEach(obj => obj.Dismiss());
+        _levelObjects.Clear();
     }
 
 }

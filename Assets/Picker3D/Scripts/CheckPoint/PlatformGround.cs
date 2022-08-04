@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CheckPointGround : MonoBehaviour
+public class PlatformGround : MonoBehaviour
 {
     [SerializeField] private Vector3 _raisingPosition;
     [SerializeField] private float _raisingDuration;
@@ -19,7 +19,6 @@ public class CheckPointGround : MonoBehaviour
         _transform = transform;
         _defaultPos = _transform.localPosition;
         SetDefault();
-       
     }
 
     public void RaiseGround()
@@ -44,9 +43,5 @@ public class CheckPointGround : MonoBehaviour
         _isRaisingCompleted = false;
         _time = 0f;
     }
-
-
-
-
 
 }
