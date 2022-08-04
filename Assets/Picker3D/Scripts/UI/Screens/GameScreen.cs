@@ -10,6 +10,7 @@ public class GameScreen : Screen
     [SerializeField] private Color _fillColor;
     [SerializeField] Text _currentLevelText;
     [SerializeField] Text _nextLevelText;
+    [SerializeField] Text _scoreTxt;
 
     private int _currentIndex; 
     public override void Show()
@@ -38,7 +39,8 @@ public class GameScreen : Screen
     private void SetTextsOnStartGame()
     {
         _currentLevelText.text = PlayerHelper.Instance.Player.Level.ToString(); 
-        _nextLevelText.text = (PlayerHelper.Instance.Player.Level + 1).ToString(); 
+        _nextLevelText.text = (PlayerHelper.Instance.Player.Level + 1).ToString();
+        _scoreTxt.text = "$" + PlayerHelper.Instance.Player.Coin;
     }
 
 }
