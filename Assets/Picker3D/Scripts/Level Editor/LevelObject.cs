@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
-public class EditorObject : MonoBehaviour
+public class LevelObject : MonoBehaviour
 {
     [Serializable]
     public struct Data

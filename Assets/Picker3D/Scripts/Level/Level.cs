@@ -42,8 +42,8 @@ public class Level : MonoBehaviour
 
         if (File.Exists(path))
         {
-            EditorObject[] foundObjects = FindObjectsOfType<EditorObject>();
-            foreach (EditorObject obj in foundObjects)
+            LevelObject[] foundObjects = FindObjectsOfType<LevelObject>();
+            foreach (LevelObject obj in foundObjects)
                 Destroy(obj.gameObject);
 
             string json = File.ReadAllText(path);
@@ -74,7 +74,7 @@ public class Level : MonoBehaviour
         _startZAxisValue = _levelEditor.editorObjects[0].position.z + _currentOffset;
     }
 
-    private void CreateLevelObject(EditorObject.Data editorObject)
+    private void CreateLevelObject(LevelObject.Data editorObject)
     {
         var newObj = PoolHandler.Instance.POOLS.GetItem(editorObject.objectType.ToString());
 

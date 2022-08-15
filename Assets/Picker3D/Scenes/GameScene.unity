@@ -648,7 +648,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 1916079646}
         m_MethodName: CreateWingTrigger
         m_Mode: 1
         m_Arguments:
@@ -789,7 +789,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 373741619}
         m_MethodName: SetYAxisRot
         m_Mode: 0
         m_Arguments:
@@ -1771,7 +1771,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 373741619}
         m_MethodName: SetZAxisPos
         m_Mode: 0
         m_Arguments:
@@ -2137,13 +2137,14 @@ GameObject:
   - component: {fileID: 373741616}
   - component: {fileID: 373741618}
   - component: {fileID: 373741617}
+  - component: {fileID: 373741619}
   m_Layer: 13
   m_Name: ObjSetPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &373741616
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2206,6 +2207,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 373741615}
   m_CullTransparentMesh: 0
+--- !u!114 &373741619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 373741615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7d0b63e021428349b0cd5bedaee43ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _checkPointTargetBallPanel: {fileID: 2070758735}
+  _checkPointTargetBall: {fileID: 522416965}
+  _posInputs:
+  - {fileID: 1977761631}
+  - {fileID: 1375266890}
+  - {fileID: 350019856}
+  _rotInputs:
+  - {fileID: 843448891}
+  - {fileID: 100301061}
+  - {fileID: 1147987455}
 --- !u!1 &375981255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2288,7 +2311,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 774621060}
         m_MethodName: SaveLevel
         m_Mode: 1
         m_Arguments:
@@ -2504,7 +2527,7 @@ GameObject:
   - component: {fileID: 511852843}
   - component: {fileID: 511852844}
   m_Layer: 0
-  m_Name: Mouse
+  m_Name: EditorInputHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2536,13 +2559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 104bcaf6c454c284e8d7b2dc2e329046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectType: 0
-  manipulateOption: 0
-  mr: {fileID: 511852844}
-  rotObject: {fileID: 0}
-  cam: {fileID: 1695072167}
-  canvas: {fileID: 1939071648}
-  ms: {fileID: 1022551839}
+  _cam: {fileID: 1695072167}
 --- !u!23 &511852844
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2675,7 +2692,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 373741619}
         m_MethodName: SetTargetBallValue
         m_Mode: 0
         m_Arguments:
@@ -3191,7 +3208,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 774621060}
         m_MethodName: SetLevelName
         m_Mode: 0
         m_Arguments:
@@ -3539,6 +3556,7 @@ GameObject:
   - component: {fileID: 774621057}
   - component: {fileID: 774621059}
   - component: {fileID: 774621058}
+  - component: {fileID: 774621060}
   m_Layer: 13
   m_Name: SaveLoadPanel
   m_TagString: Untagged
@@ -3605,6 +3623,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 774621056}
   m_CullTransparentMesh: 0
+--- !u!114 &774621060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774621056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ea94c16a17bf5548a9fd2558ef3363e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &798206046
 GameObject:
   m_ObjectHideFlags: 0
@@ -3822,8 +3852,8 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
-        m_MethodName: SetXAxisPos
+      - m_Target: {fileID: 373741619}
+        m_MethodName: SetXAxisRot
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4336,20 +4366,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f80a9cd6c4075d4d898e628664b17b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _creationButtons: {fileID: 2118681340}
-  _infoPanel: {fileID: 373741615}
-  _checkPointTargetBallPanel: {fileID: 2070758735}
-  _checkPointTargetBall: {fileID: 522416965}
-  _levelObjects: []
-  _mouse: {fileID: 511852843}
-  _posInputs:
-  - {fileID: 1977761631}
-  - {fileID: 1375266890}
-  - {fileID: 350019856}
-  _rotInputs:
-  - {fileID: 843448891}
-  - {fileID: 100301061}
-  - {fileID: 1147987455}
+  _gameManager: {fileID: 702133017}
+  _levelObjectCreation: {fileID: 1916079646}
+  _levelObjectInfo: {fileID: 373741619}
+  _levelSaveLoader: {fileID: 774621060}
+  _inputHandler: {fileID: 511852843}
 --- !u!1 &1031530308
 GameObject:
   m_ObjectHideFlags: 0
@@ -4557,7 +4578,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 1916079646}
         m_MethodName: CreatePlatform
         m_Mode: 1
         m_Arguments:
@@ -4783,7 +4804,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 1916079646}
         m_MethodName: CreateLevelEnd
         m_Mode: 1
         m_Arguments:
@@ -4924,7 +4945,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 373741619}
         m_MethodName: SetZAxisRot
         m_Mode: 0
         m_Arguments:
@@ -5544,7 +5565,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 373741619}
         m_MethodName: SetYAxisPos
         m_Mode: 0
         m_Arguments:
@@ -6285,7 +6306,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 373741619}
         m_MethodName: DeleteObj
         m_Mode: 1
         m_Arguments:
@@ -6504,7 +6525,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1610128144
 Transform:
   m_ObjectHideFlags: 0
@@ -6683,7 +6704,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 774621060}
         m_MethodName: LoadLevel
         m_Mode: 1
         m_Arguments:
@@ -6980,7 +7001,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 1916079646}
         m_MethodName: OpenCreationButtons
         m_Mode: 1
         m_Arguments:
@@ -7195,9 +7216,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1695072163}
   - component: {fileID: 1695072167}
-  - component: {fileID: 1695072166}
   - component: {fileID: 1695072165}
-  - component: {fileID: 1695072164}
   m_Layer: 0
   m_Name: EditorCam
   m_TagString: MainCamera
@@ -7219,20 +7238,6 @@ Transform:
   m_Father: {fileID: 1610128144}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &1695072164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695072162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e49bc47c3e177fa47afa13d13e51f793, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _cameraSettings: {fileID: 11400000, guid: 36e4699c9915ccf42a12687376837f8b, type: 2}
-  _followObjTransform: {fileID: 1081603849}
 --- !u!114 &1695072165
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7249,8 +7254,7 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras:
-  - {fileID: 1922979816}
+  m_Cameras: []
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -7265,14 +7269,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!81 &1695072166
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1695072162}
-  m_Enabled: 1
 --- !u!20 &1695072167
 Camera:
   m_ObjectHideFlags: 0
@@ -7472,7 +7468,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 1916079646}
         m_MethodName: CreateCheckpoint
         m_Mode: 1
         m_Arguments:
@@ -7835,7 +7831,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 373741619}
         m_MethodName: CloseInfoPanel
         m_Mode: 1
         m_Arguments:
@@ -7892,6 +7888,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1916079645}
+  - component: {fileID: 1916079646}
   m_Layer: 13
   m_Name: CreationPanel
   m_TagString: Untagged
@@ -7920,6 +7917,19 @@ RectTransform:
   m_AnchoredPosition: {x: 25, y: -80}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1916079646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916079644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b61c962c6bc1b44b89a034efc58db2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _creationButtons: {fileID: 2118681340}
 --- !u!1 &1922979813
 GameObject:
   m_ObjectHideFlags: 0
@@ -8161,7 +8171,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 1916079646}
         m_MethodName: CreateBall
         m_Mode: 1
         m_Arguments:
@@ -8446,7 +8456,7 @@ MonoBehaviour:
   m_OnEndEdit:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1022551839}
+      - m_Target: {fileID: 373741619}
         m_MethodName: SetXAxisPos
         m_Mode: 0
         m_Arguments:

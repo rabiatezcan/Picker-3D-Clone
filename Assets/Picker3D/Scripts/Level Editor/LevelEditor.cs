@@ -4,5 +4,5 @@ using System;
 [Serializable] 
 public class LevelEditor
 {
-    public List<EditorObject.Data> editorObjects = new List<EditorObject.Data>(); 
+    public List<LevelObject.Data> editorObjects = new List<LevelObject.Data>(); 
 }

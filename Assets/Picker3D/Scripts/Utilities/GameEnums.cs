@@ -20,6 +20,14 @@ public class GameEnums
         End
     }
 
+    public enum LevelEditorTypes
+    { 
+        Create, 
+        Info, 
+        Destroy 
+    };
+
+
     public enum CheckPointStates
     {
         Idle,
